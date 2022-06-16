@@ -481,32 +481,32 @@
 <li><code>description</code> :- The description of the cake</li>
 </ul>
 <h3 id="example">Example</h3>
-<pre><code class="language-toml">[metadata]
-name = &quot;cakecutter&quot;
-description = &quot;A cool description&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">[metadata]</span><span class="w"></span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cakecutter&quot;</span><span class="w"></span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;A cool description&quot;</span><span class="w"></span>
+</code></pre></div>
 <h2 id="file-structure">File Structure</h2>
 <p>To create a file/directory put the it's name in <code>[filestructure]</code> table as the key with the value <code>true</code></p>
-<pre><code class="language-toml">[filestructure]
-&quot;main.go&quot; = &quot;true&quot;
-&quot;bin/&quot; = &quot;true&quot; # &lt;= To create a directory put / in the end
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">[filestructure]</span><span class="w"></span>
+<span class="s">&quot;main.go&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="s">&quot;bin/&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="c1"># &lt;&lt; To create a directory put / in the end</span><span class="w"></span>
+</code></pre></div>
 <p>The value <code>true</code> tells cakecutter to create this. if the value does not contain <code>true</code> it won't create the file/dir.
 The reason its like this is because of dynamic filestructure. While creating the template, cakecutter will ask some questions configured by the cake author, based on there answers the files are created.
 To configure questions head to <a href="/4-advance"><code>Advance Usage</code></a> section.</p>
 <h2 id="file-content">File Content</h2>
 <p>To add content to a file put its name in <code>[content]</code> table as the key with its contents as the value</p>
-<pre><code class="language-toml">[content]
-&quot;main.go&quot; = &quot;&quot;&quot;
-package main
+<div class="highlight"><pre><span></span><code><span class="k">[content]</span><span class="w"></span>
+<span class="s">&quot;main.go&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&#39;&#39;</span>
+<span class="s">package main</span>
 
-import &quot;fmt&quot;
+<span class="s">import &quot;fmt&quot;</span>
 
-func main() {
-  fmt.Println(&quot;Hi mom&quot;)
-}
-&quot;&quot;&quot;
-</code></pre>
+<span class="s">func main() {</span>
+<span class="s">  fmt.Println(&quot;Hi mom&quot;)</span>
+<span class="s">}</span>
+<span class="s">&#39;&#39;&#39;</span><span class="w"></span>
+</code></pre></div>
 <blockquote>
 <p>Note: You can use multiline strings using 3 quotes <code>""" """</code></p>
 </blockquote>
@@ -514,16 +514,16 @@ func main() {
 <h2 id="running-commands">Running Commands</h2>
 <p>You can add commands that will run after creating all the files and adding content. <br>
 To add a command use <code>[commands]</code> table (ofc) with the command as the key and value <code>true</code></p>
-<pre><code class="language-toml">[commands]
-&quot;go mod init example.com/hello&quot; = &quot;true&quot;
-&quot;go build -o bin/cakecutter.exe&quot; = &quot;true&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">[commands]</span><span class="w"></span>
+<span class="s">&quot;go mod init example.com/hello&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="s">&quot;go build -o bin/cakecutter.exe&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+</code></pre></div>
 <p>The reason <code>true</code> is there is same as <a href="#file-structure"><code>filestructure</code></a> its needs to be there or else the command won't be invoked.
 Head to <a href="/4-advance"><code>Advance Usage</code></a> section for more information.</p>
 <h2 id="finishing-off">Finishing off</h2>
-<p>The cake is done, save the file and run</p>
-<pre><code>cc local &lt;path-to-the-file.toml&gt; &lt;directory&gt;
-</code></pre>
+<p>The cake is done, save the file and run
+<div class="highlight"><pre><span></span><code>cc local &lt;path-to-the-file.toml&gt; &lt;directory&gt;
+</code></pre></div></p>
 <blockquote>
 <p><code>directory</code> is the name of directory where the template will be created</p>
 </blockquote>
@@ -596,7 +596,7 @@ Head to <a href="/4-advance"><code>Advance Usage</code></a> section for more inf
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tooltips"], "search": "../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.431f3d41.min.js"></script>

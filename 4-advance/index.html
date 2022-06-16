@@ -476,16 +476,16 @@
 <p>You would might still prefer a custom cli because you can use some fancy terminal ui library to ask questions based on which you create files. Did you know that cakecutter can do that too? Isn't that cooooooooooooooooool?</p>
 <h2 id="asking-questions">Asking questions</h2>
 <p>You can ask questions by adding a attribute on the <code>[questions]</code> tables :-</p>
-<pre><code class="language-toml">[[questions.a]] # &lt;- The id you put here will be used to fetch the answers
-ques = &quot;Do you like Apple or Mango?&quot;
-type = &quot;select&quot;
-options = [&quot;Apple&quot;, &quot;Mango&quot;]
+<div class="highlight"><pre><span></span><code><span class="p">[[</span><span class="n">questions</span><span class="p">.</span><span class="n">a</span><span class="p">]]</span><span class="w"> </span><span class="c1"># &lt;- The id you put here will be used to fetch the answers</span><span class="w"></span>
+<span class="n">ques</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Do you like Apple or Mango?&quot;</span><span class="w"></span>
+<span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;select&quot;</span><span class="w"></span>
+<span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mango&quot;</span><span class="p">]</span><span class="w"></span>
 
-[[questions.name]]
-ques = &quot;What is your name?&quot;
-type = &quot;input&quot;
-default = &quot;Don't wanna share&quot;
-</code></pre>
+<span class="k">[[questions.name]]</span><span class="w"></span>
+<span class="n">ques</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;What is your name?&quot;</span><span class="w"></span>
+<span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;input&quot;</span><span class="w"></span>
+<span class="n">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Don&#39;t wanna share&quot;</span><span class="w"></span>
+</code></pre></div>
 <ul>
 <li><code>ques</code> - The question that will be asked</li>
 <li><code>options</code> - The options for <code>select</code> (will only work with select type)</li>
@@ -502,64 +502,64 @@ default = &quot;Don't wanna share&quot;
 <p>before creating the template. the user will be asked these questions, answers to these questons will be saved.</p>
 <h2 id="creating-files-based-on-answers">Creating files based on answers</h2>
 <p>Remember the <code>true</code> value that you have to put if you want a file to be created? Now you can use a templating language to return <code>true</code> or <code>false</code> based on the answers you get</p>
-<pre><code>&quot;apple&quot; = &quot;&quot;&quot;
-{{if eq (index . &quot;id&quot;) &quot;value&quot;}}
-  true
-{{else}}
-  false
-{{end}}
-&quot;&quot;&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="s">&quot;apple&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&#39;&#39;</span>
+<span class="s">{{if eq (index . &quot;id&quot;) &quot;value&quot;}}</span>
+<span class="s">  true</span>
+<span class="s">{{else}}</span>
+<span class="s">  false</span>
+<span class="s">{{end}}</span>
+<span class="s">&#39;&#39;&#39;</span><span class="w"></span>
+</code></pre></div>
 <blockquote>
 <p>The <code>id</code> here is the id of the question. and the <code>value</code> is the value that the answer of the question should be compared with</p>
 </blockquote>
-<p>This is equivalent to :-</p>
-<pre><code class="language-js">if (answers[&quot;id&quot;] == &quot;value&quot;) {
-  return true
-} else {
-  return false
-}
-</code></pre>
+<p>This is equivalent to :-
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">answers</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
 <p>You can learn more about the templating language <a href="https://pkg.go.dev/text/template">here</a></p>
 <h2 id="dynamic-file-contents">Dynamic file contents</h2>
 <p>You can use the same templating language for dynamic content</p>
-<pre><code class="language-toml">[contents]
-&quot;test.json&quot; = &quot;&quot;&quot;
-{
-  &quot;name&quot;: &quot;{{index . &quot;name&quot;}}&quot;
-}
-&quot;&quot;&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">[contents]</span><span class="w"></span>
+<span class="s">&quot;test.json&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&#39;&#39;</span>
+<span class="s">{</span>
+<span class="s">  &quot;name&quot;: &quot;{{index . &quot;name&quot;}}&quot;</span>
+<span class="s">}</span>
+<span class="s">&#39;&#39;&#39;</span><span class="w"></span>
+</code></pre></div>
 <blockquote>
 <p>Here <code>name</code> is the id of the question</p>
 </blockquote>
-<p>JS doc string equivalent :-</p>
-<pre><code class="language-js">`{
-  &quot;name&quot;: &quot;${answers[&quot;name&quot;]}&quot;
-}`
-</code></pre>
+<p>JS doc string equivalent :-
+<div class="highlight"><pre><span></span><code><span class="sb">`{</span>
+<span class="sb">  &quot;name&quot;: &quot;</span><span class="si">${</span><span class="nx">answers</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="sb">&quot;</span>
+<span class="sb">}`</span><span class="w"></span>
+</code></pre></div></p>
 <p>You can learn more about the templating language <a href="https://pkg.go.dev/text/template">here</a></p>
 <h2 id="running-commands-based-on-answers">Running commands based on answers</h2>
 <p>You can also use the templating language to return <code>true</code> or <code>false</code>. If the return is <code>true</code> the command will be invoked.</p>
-<pre><code class="language-toml">[commands]
-&quot;npm init -y&quot; = &quot;&quot;&quot;
-{{if eq (index . &quot;id&quot;) &quot;value&quot;}}
-  true
-{{else}}
-  false
-{{end}}
-&quot;&quot;&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">[commands]</span><span class="w"></span>
+<span class="s">&quot;npm init -y&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&#39;&#39;</span>
+<span class="s">{{if eq (index . &quot;id&quot;) &quot;value&quot;}}</span>
+<span class="s">  true</span>
+<span class="s">{{else}}</span>
+<span class="s">  false</span>
+<span class="s">{{end}}</span>
+<span class="s">&#39;&#39;&#39;</span><span class="w"></span>
+</code></pre></div>
 <blockquote>
 <p>Here <code>id</code> is the question's id and <code>value</code> is the answer thats being compared with</p>
 </blockquote>
 <p>this is equivalent to :-</p>
-<pre><code class="language-js">if (answers[&quot;id&quot;] == &quot;value&quot;) {
-  return &quot;true&quot;
-} else {
-  return &quot;false&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">answers</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 <p>You can learn more about the templating language <a href="https://pkg.go.dev/text/template">here</a></p>
 <h2 id="finishing-off">Finishing off</h2>
 <p>There are more cool features to come, so stay tuned.</p>
@@ -630,7 +630,7 @@ default = &quot;Don't wanna share&quot;
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tooltips"], "search": "../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.431f3d41.min.js"></script>

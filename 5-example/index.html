@@ -346,22 +346,22 @@
 
 <h1 id="basic-example-cake">Basic Example Cake</h1>
 <p>Here is a basic cake which asks for the user's name and creates a file with their name as the content</p>
-<pre><code class="language-toml">[metadata]
-name = &quot;name-printer&quot;
-description = &quot;Prints your name on a file in seconds!&quot; # XD
+<div class="highlight"><pre><span></span><code><span class="k">[metadata]</span><span class="w"></span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;name-printer&quot;</span><span class="w"></span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Prints your name to a file in seconds!&quot;</span><span class="w"> </span><span class="c1"># XD</span><span class="w"></span>
 
-[[questions.name]]
-ques = &quot;What is your name?&quot;
-type = &quot;input&quot;
+<span class="k">[[questions.name]]</span><span class="w"></span>
+<span class="n">ques</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;What is your name?&quot;</span><span class="w"></span>
+<span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;input&quot;</span><span class="w"></span>
 
-[filestructure]
-&quot;name.txt&quot; = &quot;true&quot;
+<span class="k">[filestructure]</span><span class="w"></span>
+<span class="s">&quot;name.txt&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
 
-[content]
-&quot;name.txt&quot; = &quot;&quot;&quot;
-{{index . &quot;name&quot;}}
-&quot;&quot;&quot;
-</code></pre>
+<span class="k">[content]</span><span class="w"></span>
+<span class="s">&quot;name.txt&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&#39;&#39;</span>
+<span class="s">{{index . &quot;name&quot;}}</span>
+<span class="s">&#39;&#39;&#39;</span><span class="w"></span>
+</code></pre></div>
 
               
             </article>
@@ -429,7 +429,7 @@ type = &quot;input&quot;
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tooltips"], "search": "../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.431f3d41.min.js"></script>
