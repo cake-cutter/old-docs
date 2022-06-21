@@ -304,6 +304,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#folding-the-batter" class="md-nav__link">
+    Folding the Batter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#file-structure" class="md-nav__link">
     File Structure
   </a>
@@ -318,8 +325,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-commands" class="md-nav__link">
-    Running Commands
+  <a href="#sprinkling-some-toppings" class="md-nav__link">
+    Sprinkling some toppings
   </a>
   
 </li>
@@ -431,6 +438,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#folding-the-batter" class="md-nav__link">
+    Folding the Batter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#file-structure" class="md-nav__link">
     File Structure
   </a>
@@ -445,8 +459,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-commands" class="md-nav__link">
-    Running Commands
+  <a href="#sprinkling-some-toppings" class="md-nav__link">
+    Sprinkling some toppings
   </a>
   
 </li>
@@ -485,6 +499,18 @@
 <span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cakecutter&quot;</span><span class="w"></span>
 <span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;A cool description&quot;</span><span class="w"></span>
 </code></pre></div>
+<h2 id="folding-the-batter">Folding the Batter</h2>
+<p>Batter are the commands which are run before creating all the files.</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">[batter]</span><span class="w"></span>
+<span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;git init&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+<span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;go mod init&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre></div>
+The reason <code>true</code> is there. because it tells cakecutter to run this. its needs to be there or else the command won't be invoked.
+Head to <a href="/4-advance"><code>Advance Usage</code></a> section for more information.</p>
 <h2 id="file-structure">File Structure</h2>
 <p>To create a file/directory put the it's name in <code>[filestructure]</code> table as the key with the value <code>true</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">[filestructure]</span><span class="w"></span>
@@ -511,15 +537,16 @@ To configure questions head to <a href="/4-advance"><code>Advance Usage</code></
 <p>Note: You can use multiline strings using 3 quotes <code>""" """</code></p>
 </blockquote>
 <p>Dynamic content is also possible by templating. head to <a href="" title="/4-advance"><code>Advance Usage</code></a> section for more information.</p>
-<h2 id="running-commands">Running Commands</h2>
-<p>You can add commands that will run after creating all the files and adding content. <br>
-To add a command use <code>[commands]</code> table (ofc) with the command as the key and value <code>true</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">[commands]</span><span class="w"></span>
-<span class="s">&quot;go mod init example.com/hello&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
-<span class="s">&quot;go build -o bin/cakecutter.exe&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<h2 id="sprinkling-some-toppings">Sprinkling some toppings</h2>
+<p>Toppings are just like batter, but instead of running before everything they are run after everything to complete the setup.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[toppings]</span><span class="w"></span>
+<span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;go mod init example.com/hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+<span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;go build -o bin/cakecutter.exe&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
 </code></pre></div>
-<p>The reason <code>true</code> is there is same as <a href="#file-structure"><code>filestructure</code></a> its needs to be there or else the command won't be invoked.
-Head to <a href="/4-advance"><code>Advance Usage</code></a> section for more information.</p>
 <h2 id="finishing-off">Finishing off</h2>
 <p>The cake is done, save the file and run
 <div class="highlight"><pre><span></span><code>cc local &lt;path-to-the-file.toml&gt; &lt;directory&gt;
